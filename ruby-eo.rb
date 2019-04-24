@@ -15,21 +15,21 @@ class Esperanto < String
 		end
 	end
 	def is_noun? #名詞かどうか
-	 if self[-1] == "o" || self[-2] == "o"
+	 if self.end_with?("o") || self.end_with?("oj") || self.end_with?("on") || self.end_with?("ojn")
 		return true
 	 else
 		return false
 	 end
 	end
 	def is_adj? #形容詞かどうか
-	 if self[-1] == "a" || self[-2] == "a"
+	 if self.end_with?("a") || self.end_with?("aj") || self.end_with?("an") || self.end_with?("ajn")
 		return true
 	 else
 		return false
 	 end
 	end
 	def is_adv? #副詞かどうか
-	 if self[-1] == "e" || self[-2] == "e"
+	 if self[-1] == "e"
 		return true
 	 else
 		return false
@@ -85,7 +85,7 @@ class Esperanto < String
 	 end
 	end
 	def is_negative? ##
-	 if self.is_verb? && self[0] + self[1] == "ne"
+	 if self.is_verb? && self.begin_with?("ne")
 		return true
 	 else
 		return false
